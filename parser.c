@@ -90,6 +90,10 @@ void parse_file ( char * filename,
     else if(!strcmp(line,"apply")){
       matrix_mult(transform,edges);
     }
+    else if(!strcmp(line,"clear")){
+      clear_screen(s);
+      edges = new_matrix(4,4);
+    }
     else if(!strcmp(line,"display")){
       clear_screen(s);
       draw_lines(edges,s,c);
@@ -124,6 +128,9 @@ void parse_file ( char * filename,
     }
     else if(!strcmp(line,"sphere")){
       argstatus = 10;
+    }
+    else if(!strcmp(line,"torus")){
+      argstatus = 11;
     }
 
     
@@ -191,7 +198,7 @@ void parse_file ( char * filename,
 		   atof(arr[1]),
 		   atof(arr[2]),
 		   atof(arr[3]),
-		   0.01);
+		   100);
 	argstatus = 0;
       }
       else if(argstatus == 7){
@@ -231,11 +238,21 @@ void parse_file ( char * filename,
 	argstatus = 0;
       }
       else if(argstatus == 10){
-	add_box(edges,
+	add_sphere(edges,
 		  atof(arr[0]),
 		  atof(arr[1]),
 		  atof(arr[2]),
 		  atof(arr[3]),
+		50);
+	argstatus = 0;
+      }
+      else if(argstatus == 11){
+	add_torus(edges,
+		  atof(arr[0]),
+		  atof(arr[1]),
+		  atof(arr[2]),
+		  atof(arr[3]),
+		  atof(arr[4]),
 		50);
 	argstatus = 0;
       }
