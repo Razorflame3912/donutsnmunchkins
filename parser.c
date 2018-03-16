@@ -243,7 +243,7 @@ void parse_file ( char * filename,
 		  atof(arr[1]),
 		  atof(arr[2]),
 		  atof(arr[3]),
-		50);
+		100);
 	argstatus = 0;
       }
       else if(argstatus == 11){
@@ -253,7 +253,7 @@ void parse_file ( char * filename,
 		  atof(arr[2]),
 		  atof(arr[3]),
 		  atof(arr[4]),
-		50);
+		100);
 	argstatus = 0;
       }
       else{
